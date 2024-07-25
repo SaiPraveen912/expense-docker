@@ -1,0 +1,22 @@
+name: expense
+networks:  # top level, it is accessible throughout
+  default:
+    name: expense # checks if network is present or not if not creates it
+services:
+  mysql:
+    image: mysql:v1.0.0
+    container_name: mysql # equlal to --name mysql 
+  backend:
+    image: backend:v1.0.0
+    container_name: backend
+    depends_on:
+    - mysql
+  frontend:
+    image: frontend:v1.0.0
+    container_name: frontend
+    depends_on:
+    - backend
+    ports:
+    - "80:80"
+    
+    

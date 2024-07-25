@@ -1,4 +1,5 @@
 name: expense
+version: '3.8'
 networks:  # top level, it is accessible throughout
   default:
     name: expense # checks if network is present or not if not creates it

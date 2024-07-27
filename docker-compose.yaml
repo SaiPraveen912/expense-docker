@@ -5,6 +5,7 @@ networks:  # top level, it is accessible throughout
     name: expense # checks if network is present or not if not creates it
 volumes:
   mysql: # docker volume create mysql
+    external: true # docker volume create expense
 services:
   mysql:
     image: mysql:v1.0.0

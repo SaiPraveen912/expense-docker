@@ -3,7 +3,7 @@ name: expense
 networks:  # top level, it is accessible throughout
   default:
     name: expense # checks if network is present or not if not creates it
-     external: true
+    external: true
 services:
   mysql:
     image: mysql:v1.0.0

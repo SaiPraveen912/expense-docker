@@ -3,11 +3,14 @@ name: expense
 networks:  # top level, it is accessible throughout
   default:
     name: expense # checks if network is present or not if not creates it
-    #external: true
+volumes:
+  mysql: # docker volume create mysql
 services:
   mysql:
     image: mysql:v1.0.0
     container_name: mysql # equlal to --name mysql 
+    volumes:
+    - mysql:/var/lib/mysql # -v volume-name:/path-in-container
   backend:
     image: backend:v1.0.0
     container_name: backend

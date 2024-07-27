@@ -1,8 +1,9 @@
-version: '3.8'
+version: '3.8' # you can remove version
 name: expense
 networks:  # top level, it is accessible throughout
   default:
     name: expense # checks if network is present or not if not creates it
+     external: true
 services:
   mysql:
     image: mysql:v1.0.0
@@ -10,7 +11,7 @@ services:
   backend:
     image: backend:v1.0.0
     container_name: backend
-    command: sh -c "sleep 20 && node /opt/server/index.js"
+    command: sh -c "sleep 20 && node /opt/server/index.js" # wait 20 seconds for mysql to complete
     depends_on:
     - mysql
   frontend:
